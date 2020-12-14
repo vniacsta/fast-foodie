@@ -112,6 +112,9 @@ class GameScene extends Phaser.Scene {
     gameState.customerCountText = this.add.text(gameState.cam.worldView.right - 20, 80, `Customers left: ${gameState.customersLeftCount}`, { fontSize: '15px', fontWeight: 'bold', fill: '#000000' }).setOrigin(1);
     
     // rating the restaurant
+    gameState.starEmptyGroup = this.add.group();
+    this.drawEmptyStars();
+
     gameState.starGroup = this.add.group();
     this.drawStars();
 
@@ -377,6 +380,13 @@ class GameScene extends Phaser.Scene {
       }
     } else {
       gameState.readyForNextOrder = true;
+    }
+  }
+
+  drawEmptyStars() {
+    // define empty stars
+    for (let i = 0; i < 5; i++) {
+      gameState.starEmptyGroup.create(20 + (50 * 5), 20, 'Star-empty').setOrigin(0).setScale(0.5);
     }
   }
 
