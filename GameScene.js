@@ -232,7 +232,7 @@ class GameScene extends Phaser.Scene {
   /* WAVES */
   generateWave() {
     // Add the total number of customers per wave here:
-    gameState.totalCustomerCount = Math.ceil(Math.random() * 10) * gameState.currentWaveCount;
+    gameState.totalCustomerCount = Math.ceil(Math.random() * 20);
 
     // check customersServedCount to 0
     gameState.customersServedCount = 0;
@@ -367,6 +367,7 @@ class GameScene extends Phaser.Scene {
 
       // end the game after 3 waves
       if (gameState.currentWaveCount > gameState.totalWaveCount) {
+        gameState.currentMusic.stop();
         this.scene.stop('GameScene');
         this.scene.start('WinScene');
       } else {
@@ -426,12 +427,14 @@ class GameScene extends Phaser.Scene {
 
       // if player has 1 or no stars, looses the game
       if (gameState.starRating < 1) {
+        gameState.currentMusic.stop();
         this.scene.stop('GameScene');
         this.scene.start('LoseScene');
       }
 
     } else {
       // lose the game if there are no stars
+      gameState.currentMusic.stop();
       this.scene.stop('GameScene');
       this.scene.start('LoseScene');
     }

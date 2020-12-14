@@ -16,8 +16,8 @@ class StartScene extends Phaser.Scene {
   }
 
   create() {
+    // play intro music
     gameState.currentMusic = this.sound.add('introTheme');
-
     gameState.currentMusic.play({ loop: true });
 
     // Define the main camera so we can use it for easy midpoints, top, and bottom of view
