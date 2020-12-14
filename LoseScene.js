@@ -18,7 +18,7 @@ class LoseScene extends Phaser.Scene {
 
   create() {
     // Stop, reassign, and play the new music
-    // gameState.currentMusic.stop();
+    gameState.currentMusic.stop();
     gameState.currentMusic = this.sound.add('loseTheme');
     gameState.currentMusic.play({ loop: true });
 
